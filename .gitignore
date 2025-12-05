@@ -1,0 +1,12 @@
+# SSL certificates (should not be committed)
+ssl/*.pem
+ssl/*.key
+ssl/*.crt
+ssl/*.csr
+
+# Logs
+*.log
+
+# Docker volumes
+data/
+

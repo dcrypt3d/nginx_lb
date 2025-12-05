@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: nginx-lb
+    network_mode: host  # Use host network for better performance and direct access
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./conf.d:/etc/nginx/conf.d:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    restart: unless-stopped
+    # Note: With host mode, ports are directly on the host
+    # No port mapping needed - nginx listens on host's ports 80 and 443
+
